@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depósito de Materiales y Ferretería SANTA ROSA</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #1e2b38;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  background-color: #2f4b5f;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: #fff;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #3a5a70;
+  border-radius: 4px;
+}
+
+section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+footer {
+  background-color: #1e2b38;
+  color: #fff;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 14px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.producto {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.07);
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+form {
+  background-color: #eef3f7;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  background-color: #2f4b5f;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #3a5a70;
+}
+
+.slider {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.slider img {
+  width: 100%;
+  display: block;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsapp img {
+  width: 60px;
+  height: 60px;
+}
+
+.carrusel-productos {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.carrusel-productos .producto {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 240px;
+  margin: 10px 0;
+}
+
+  </style>
+  
+</head>
+<body>
+
+  <header>
+    <h1>Depósito de Materiales y Ferretería SANTA ROSA</h1>
+    <p>¡Todo lo que necesitás para construir!</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#productos">Herramientas</a>
+    <a href="construccion.html">Materiales de Construcción</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div class="slider">
+    <img src="https://i.postimg.cc/kXWjKMbW/logo-2.jpg" alt="Slider 1">
+  </div>
+
+  <section id="inicio">
+    <h2>Bienvenidos</h2>
+    <p>Somos tu Depósito y Ferretería de confianza, con más de 20 años de experiencia en el rubro. Encontrá todo lo que necesitás para tus proyectos.</p>
+  </section>
+
+  <section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>SANTA ROSA nació en 2005 con la misión de ofrecer productos de calidad, atención personalizada y precios competitivos. Nos especializamos en herramientas, materiales de construcción y soluciones para el hogar.</p>
+  </section>
+
+  <section id="productos">
+  <h2>Herramientas</h2>
+  
+  <input type="text" id="buscador" placeholder="Buscar productos..." onkeyup="buscarProducto()" style="padding:10px; width:100%; max-width:400px; margin-bottom:20px; border-radius:6px; border:1px solid #ccc;">
+
+  <div class="carrusel-productos">
+    <div class="producto" data-nombre="Martillo">
+      <img src="https://i.postimg.cc/G2h0S8k0/lovepik-hammer-png-image-401141170-wh1200.png" alt="Martillo">
+      <h3>Martillo</h3>
+      <p>Gs 55000</p>
+      <button onclick="agregar('Martillo', 55000)">Agregar al carrito</button>
+    </div>
+   
+
+    <div class="producto" data-nombre="Sierra Manual">
+      <img src="https://i.postimg.cc/TPnmHhTc/image.png" alt="Sierra Manual">
+      <h3>Sierra Manual</h3>
+      <p>Gs 32500</p>
+      <button onclick="agregar('Sierra Manual', 32500)">Agregar al carrito</button>
+    </div>
+    
+     <div class="producto" data-nombre="Llave Inglesa">
+      <img src="https://i.postimg.cc/TPnmHhTc/image.png" alt="Llave Inglesa">
+      <h3>Llave Inglesa</h3>
+      <p>Gs 5000</p>
+      <button onclick="agregar('Llave Inglesa', 5000)">Agregar al carrito</button>
+    </div>
+     <div class="producto" data-nombre="Destornillador">
+      <img src="https://i.postimg.cc/BQvTQqCq/Destornillador.jpg" alt="Destornillador">
+      <h3>Destornillador</h3>
+      <p>Gs 1200</p>
+      <button onclick="agregar('Destornillador', 1200)">Agregar al carrito</button>
+    </div>
+     <div class="producto" data-nombre="Taladro">
+      <img src="https://i.postimg.cc/3rGXkLsq/descarga-1.jpg" alt="Taladro">
+      <h3>Taladro</h3>
+      <p>Gs 45000</p>
+      <button onclick="agregar('Taladro', 45000)">Agregar al carrito</button>
+    </div>
+    <div class="producto" data-nombre="cadena">
+      <img src="  " alt="Cadena">
+      <h3>Cadena</h3>
+      <p>Gs 65000 mt</p>
+      <button onclick="agregar('Cadena', 45000 )">Agregar al carrito</button>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+  <section id="carrito" class="carrito">
+    <h2>Carrito de Compras</h2>
+    <ul id="lista-carrito"></ul>
+    <p><strong>Total:</strong> <span id="total">0</span> Gs</p>
+    <button onclick="enviarWhatsApp()">Enviar Pedido por WhatsApp</button>
+    <button onclick="limpiarCarrito()">Vaciar Carrito</button>
+  </section>
+  
+  
+ 
+  
+  <a class="whatsapp" href="https://wa.me/+595993458486?text=Hola%20SANTA%20ROSA,%20quiero%20información%20sobre%20sus%20productos." target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+  </a>
+  
+  <script>
+    const carrito = [];
+    const lista = document.getElementById("lista-carrito");
+    const totalSpan = document.getElementById("total");
+
+    function agregar(producto, precio) {
+      carrito.push({ producto, precio });
+      actualizarCarrito();
+    }
+
+    function eliminarProducto(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
+    function limpiarCarrito() {
+      if (carrito.length === 0) {
+        alert("El carrito ya está vacío.");
+        return;
+      }
+      if (confirm("¿Estás seguro que querés vaciar todo el carrito?")) {
+        carrito.length = 0;
+        actualizarCarrito();
+      }
+    }
+
+    function actualizarCarrito() {
+      lista.innerHTML = "";
+      let total = 0;
+      carrito.forEach((item, i) => {
+        const li = document.createElement("li");
+        li.innerHTML = `${item.producto} - Gs. ${item.precio}
+  <button onclick="eliminarProducto(${i})" style="background:none;border:none;color:#c00;font-size:18px;cursor:pointer;margin-left:10px;">✖</button>`;
+
+        lista.appendChild(li);
+        total += item.precio;
+      });
+      totalSpan.textContent = total;
+    }
+
+    function enviarWhatsApp() {
+      if (carrito.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+      }
+
+      let mensaje = "Hola SANTA ROSA, quiero realizar el siguiente pedido:%0A";
+      carrito.forEach(item => {
+        mensaje += `- ${item.producto} (Gs. ${item.precio})%0A`;
+      });
+      const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      mensaje += `%0ATotal: Gs. ${total}`;
+      window.open(`https://wa.me/595993458486?text=${mensaje}`, "_blank");
+    }
+  </script>
+
+
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+      <li>Corte de madera y metales</li>
+      <li>Asesoramiento técnico</li>
+       <li>Presupuesto de una instalacion electrica</li>
+      <li>Envíos a domicilio</li>
+      
+    </ul>
+  </section>
+  
+  
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>📍 Dirección: Compañia Cañada-Piribebuy </p>
+    <p>📞 Celular: (0971)145699</p>
+    <p>📧 Email: <a href="mailto:waibucomputer1@gmail.com">waibucomputer1@gmail.com</a></p>
+
+
+    <!-- <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section> -->
+ 
+ 
+  
+  <section>
+    <h2>Ubicación</h2>
+    <iframe src="https://mapcarta.com/es/35809054/Mapa" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Depósito de Materiales y Ferretería SANTA ROSA.</p>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/+595993458486?text=Hola%20SANTA%20ROSA,%20quiero%20información%20sobre%20sus%20productos." target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+  </a>
+
+
+
+<script>
+  function buscarProducto() {
+    const input = document.getElementById("buscador");
+    const filtro = input.value.toLowerCase();
+    const productos = document.querySelectorAll(".producto");
+
+    productos.forEach(producto => {
+      const nombre = producto.getAttribute("data-nombre").toLowerCase();
+      if (nombre.includes(filtro)) {
+        producto.style.display = "block";
+      } else {
+        producto.style.display = "none";
+      }
+    });
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
+
